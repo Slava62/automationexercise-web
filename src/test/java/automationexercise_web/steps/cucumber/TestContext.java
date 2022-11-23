@@ -5,6 +5,8 @@ import com.github.javafaker.Faker;
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
 import automationexercise_web.dto.User;
+import automationexercise_web.dto.Country;
+import automationexercise_web.dto.Title;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -31,7 +33,6 @@ public class TestContext {
         // EnvironmentInfo.setAllureEnvironment();
     }
     
-    
     private JSONObject myObject;
     private User testUser;
 
@@ -39,7 +40,6 @@ public class TestContext {
         testUser= create_set_account_data();
     }
 
-    
     public User getTestUser() {
         return testUser;
     }
@@ -55,7 +55,7 @@ public class TestContext {
                 .withName(usFaker.name().username())
                 .withEmail(fakeValuesService.bothify("????##@gmail.com"))
                 .withPassword(fakeValuesService.bothify("?#??##??"))
-                .withTitle(String.valueOf(usFaker.number().numberBetween(0, 1)))
+                .withTitle(usFaker.options().option(Title.class).getName())
                 .withBirthDay(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)))
                 .withBirthMonth(st)
                 .withBirthYear(String.valueOf(cal.get(Calendar.YEAR)))
@@ -64,30 +64,11 @@ public class TestContext {
                 .withCompany(usFaker.company().name())
                 .withAddress1(usFaker.address().fullAddress())
                 .withAddress2(usFaker.address().secondaryAddress())
-                .withCountry(usFaker.country().name())
+                .withCountry(usFaker.options().option(Country.class).getName())
                 .withZipcode(usFaker.address().zipCode())
                 .withState(usFaker.address().state())
                 .withCity(usFaker.address().city())
                 .withMobile_number(usFaker.phoneNumber().phoneNumber());
     }
 
-    // public JSONObject getJSONObject()  {
-    //     return myObject;
-    // }
-
-    // @Then("the response code is 200")
-    // public void user_check_the_response_code() {
-    //     assertThat(this.getResponse().isSuccessful(), equalTo(true));
-    // }
-    // @And("the response JSON has responseCode {int}")
-    // public void user_check_JSON_responseCode(int responseCode) {
-    //     JSONObject myObject = this.getJSONObject();
-    //     assertThat(responseCode, equalTo((int)myObject.get("responseCode")));
-    // }
-    // @And("the response JSON has message {string}")
-    // public void the_user_check_JSON_message(String message) {
-    //     JSONObject myObject = this.getJSONObject();
-    //     String s=myObject.get("message").toString();
-    //     assertThat(message, equalTo(myObject.get("message")));
-    // }
 }
