@@ -7,6 +7,6 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(features="src/test/resources/features", 
 glue = "automationexercise_web.steps.cucumber", 
-tags = "",//"@use", 
+tags = "",//"@use", @positive not @ignored
 plugin = {"pretty"})
-public class RegisterUserAcceptanceTestSuite { }
+public class UserAcceptanceTestSuite { }

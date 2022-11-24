@@ -11,11 +11,6 @@ public class MainStepsDefinitions {
     @Steps
     RegisterUserSteps registerUserSteps;
 
-    @Given("User launch browser")
-    public void user_lanch_browser() {
-        System.out.println("Start the scenario");;
-    }
-
     @When("User navigate to url {string}")
     public void user_navigates_to_url(String url) {
         registerUserSteps.openMainPage(url);

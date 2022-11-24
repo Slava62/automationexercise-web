@@ -1,13 +1,9 @@
 Feature: Test Case 1: Register User
     Description: I check the user registration scenario works correct
-
-# Background: User is on main page
-# # 	Given I navigate to the login page
-# 	# When I submit username and password
-# 	# Then I should be logged in 
-
+@ignored
+@positive  
 Scenario: User try to create account
-    Given   User launch browser
+    Given   User has data to create account
     When    User navigate to url 'https://automationexercise.com'
     Then    User verify that home page is visible successfully
     

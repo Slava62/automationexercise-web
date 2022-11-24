@@ -1,5 +1,5 @@
-Feature: Test Case 2: Login User with correct email and password
-	Description: I check the user login scenario works correct
+Feature: Test Case 4: Logout User
+	Description: I check the user can logout
 @ignored
 @positive
 Scenario: Login User with correct email and password
@@ -14,5 +14,5 @@ Scenario: Login User with correct email and password
 	And 	Click 'login' button
 	Then 	User Verify that 'Logged in as' 'username' is visible
 
-	When 	Click 'Delete Account' button
-	Then 	Verify that 'ACCOUNT DELETED!' caption is visible
+	When 	Click 'Logout' button
+	Then 	Verify that user is navigated to login page
